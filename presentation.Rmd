@@ -1,0 +1,70 @@
+---
+title: "Presentation HW2"
+author: "Qiannan(Nancy) Shen"
+date: "10/6/2021"
+output:
+  html_document: default
+---
+
+# Introduction
+
+The dietary health issues is a popular problem nowadays. Excess sugar consumption is one of the serious health problems that appeared in many countries. According to the American Heart Association (AHA), the maximum amount of added sugars you should eat in a day are 37.5 grams per day for male and 25 grams per day for female. However, in most countries, people would take in an amount of sugar which is far from the regular basis. As modern grocery shoppers, we try to be engaged and knowledgeable about nutrition. So, I did this analysis between The quantity of food consumption of sugar and sweeteners (grams per person and day) and calories measures the energy content of the food. And I try to find that the change in the sugar intake from 1960 to 2012 and test whether people prefer to eat sweeter food in a different country. So I choose two-country Solomon Islands and Thailand. Make a comparison of sugar, food supply, and the percentage.
+
+### Two subgroup: **Solomon Islands and Thailand**
+
+### Two indicators:
+
+#### *Food supply (kilocalories / person & day):*
+
+description:Calories measures the energy content of the food. The required intake varies, but it is normally in the range of 1500-3000 kilocalories per day. One banana contains approximately 100 kilocalories.
+
+#### *Sugar per person (g per day)：*
+
+description:The quantity of food consumption of sugar and sweeteners (grams per person and day). NOTE: data for 2004 are based on a rough extrapolation by Gapminder.
+
+```{R, echo = FALSE, results = 'hide', message = FALSE}
+
+source(file = "wrangling_code.R", echo = TRUE)
+source(file = "visualization_function.R", echo = TRUE)
+
+```
+
+# Visualization
+
+### *The tendency in the quantity of food consumption of sugar and sweeteners (grams per person and day) from 1960 to 2012*
+
+```{R, echo = FALSE}
+
+compare_plot("Solomon Islands", "Thailand",'sugar')
+
+```
+
+#### Explanation & Comparison
+
+The purple line presents the amount of food consumption of sugar in the Solomon Islands. The orange line presents the amount of food consumption of sugar in Thailand from 1960 to 2010. The line of Solomon Islands shows a steady tendency, while the line of Thailand shows a dramatic increasing tendency that the amount of consumption of sugar in 2010 has been increased to ten times as compared with the amount in 1960.
+
+### *The tendency in the calories measures the energy content of the food*
+
+```{R, echo = FALSE}
+
+compare_plot("Solomon Islands", "Thailand",'food_supply')
+
+```
+
+#### Explanation & Comparison
+
+The purple line presents the calories that measure the energy content of the food in the Solomon Islands. The orange line presents the calories that measure the energy content of the food in Thailand from 1960 to 2010. These two lines don't show much difference in the graph from 1960 to 1990. However, after 1990, both of the two lines show an increasing tendency, tough the calories measure the energy content of the food in Thailand increase more rapidly than that in the Solomon Islands.
+
+### *The tendency in the percentage (the calories measures the energy content of the food / the tendency in the quantity of food consumption of sugar and sweeteners) from 1960 to 2012*
+
+```{R, echo = FALSE}
+
+compare_plot("Solomon Islands", "Thailand",'percentage')
+
+```
+
+#### Explanation & Comparison
+
+Then, the analysis tends to find whether the change in the amount of sugar is related to the food supply, or people just prefer to eat sweeter and unhealthy. So we create the variable 'percentage' to figure out the change. The purple line presents the percentage in the Solomon Islands. The orange line presents the percentage in Thailand from 1960 to 2010. The line of Solomon Islands shows a steady tendency, while the line of Thailand shows a dramatic increasing tendency.
+
+We can conclude that people in the Solomon Islands eat healthily and don't take in much sugar every day. However, people in Thailand take in an increasing amount of sugar and like sweeter food as time goes by.
