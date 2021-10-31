@@ -14,6 +14,9 @@ tidy_sugar <- pivot_longer(sugar, '1960':'2012', names_to = "year", values_to = 
 #To combine the tidied versions of tidy_sugar and tidy_food_supply into a single tibble, 
 #we need to use left_join(), which you’ll learn about in relational data.
 tidy_data <- left_join(tidy_food_supply, tidy_sugar)
+
+## comment about left_join: I think it is better to use the parameter "by" in left_join, although if you don't use "by", the original join will be by = c("country","year"))
+## tidy_data <- left_join(tidy_food_supply, tidy_sugar, by = c("country","year"))
 str(tidy_data)
 
 #Drop tibble's rows containing missing values
